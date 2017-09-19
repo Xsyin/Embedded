@@ -1,0 +1,77 @@
+
+led_on_elf:     file format elf32-littlearm
+
+Disassembly of section .text:
+
+00000000 <_start>:
+   0:	e59f0014 	ldr	r0, [pc, #20]	; 1c <.text+0x1c>
+   4:	e3a01c01 	mov	r1, #256	; 0x100
+   8:	e5801000 	str	r1, [r0]
+   c:	e59f000c 	ldr	r0, [pc, #12]	; 20 <.text+0x20>
+  10:	e3a01000 	mov	r1, #0	; 0x0
+  14:	e5801000 	str	r1, [r0]
+
+00000018 <MAIN_LOOP>:
+  18:	eafffffe 	b	18 <MAIN_LOOP>
+  1c:	56000050 	undefined
+  20:	56000054 	undefined
+Disassembly of section .debug_aranges:
+
+00000000 <.debug_aranges>:
+   0:	0000001c 	andeq	r0, r0, ip, lsl r0
+   4:	00000002 	andeq	r0, r0, r2
+   8:	00040000 	andeq	r0, r4, r0
+	...
+  14:	00000024 	andeq	r0, r0, r4, lsr #32
+	...
+Disassembly of section .debug_info:
+
+00000000 <.debug_info>:
+   0:	0000004e 	andeq	r0, r0, lr, asr #32
+   4:	00000002 	andeq	r0, r0, r2
+   8:	01040000 	tsteq	r4, r0
+	...
+  14:	00000024 	andeq	r0, r0, r4, lsr #32
+  18:	5f64656c 	swipl	0x0064656c
+  1c:	532e6e6f 	teqpl	lr, #1776	; 0x6f0
+  20:	6f682f00 	swivs	0x00682f00
+  24:	782f656d 	stmvcda	pc!, {r0, r2, r3, r5, r6, r8, sl, sp, lr}
+  28:	6e697973 	mcrvs	9, 3, r7, cr9, cr3, {3}
+  2c:	626d652f 	rsbvs	r6, sp, #197132288	; 0xbc00000
+  30:	65646465 	strvsb	r6, [r4, #-1125]!
+  34:	6f772f64 	swivs	0x00772f64
+  38:	70736b72 	rsbvcs	r6, r3, r2, ror fp
+  3c:	2f656361 	swics	0x00656361
+  40:	0064656c 	rsbeq	r6, r4, ip, ror #10
+  44:	20554e47 	subcss	r4, r5, r7, asr #28
+  48:	32205341 	eorcc	r5, r0, #67108865	; 0x4000001
+  4c:	0035312e 	eoreqs	r3, r5, lr, lsr #2
+  50:	Address 0x50 is out of bounds.
+
+Disassembly of section .debug_abbrev:
+
+00000000 <.debug_abbrev>:
+   0:	10001101 	andne	r1, r0, r1, lsl #2
+   4:	12011106 	andne	r1, r1, #-2147483647	; 0x80000001
+   8:	1b080301 	blne	200c14 <__bss_end__+0x1f8bf0>
+   c:	13082508 	tstne	r8, #33554432	; 0x2000000
+  10:	00000005 	andeq	r0, r0, r5
+Disassembly of section .debug_line:
+
+00000000 <.debug_line>:
+   0:	00000035 	andeq	r0, r0, r5, lsr r0
+   4:	001c0002 	andeqs	r0, ip, r2
+   8:	01020000 	tsteq	r2, r0
+   c:	000a0efb 	streqd	r0, [sl], -fp
+  10:	01010101 	tsteq	r1, r1, lsl #2
+  14:	01000000 	tsteq	r0, r0
+  18:	64656c00 	strvsbt	r6, [r5], #-3072
+  1c:	2e6e6f5f 	mcrcs	15, 3, r6, cr14, cr15, {2}
+  20:	00000053 	andeq	r0, r0, r3, asr r0
+  24:	05000000 	streq	r0, [r0]
+  28:	00000002 	andeq	r0, r0, r2
+  2c:	2c2c1200 	sfmcs	f1, 4, [ip]
+  30:	2d2c2c2c 	stccs	12, cr2, [ip, #-176]!
+  34:	01000602 	tsteq	r0, r2, lsl #12
+  38:	Address 0x38 is out of bounds.
+
