@@ -40,7 +40,7 @@ void memsetup(void)
 void copy_2th_to_sdram(void)
 {
 	unsigned long *srcPtr = (unsigned long *)2048;
-	unsigned long *destPtr = (unsigned long *)0x30000000;
+	unsigned long *destPtr = (unsigned long *)0x30004000;
 	while(srcPtr < (unsigned long *)4096)
 	{
 		*destPtr = *srcPtr;
@@ -62,8 +62,8 @@ void create_page_table(void)
 							 MMU_CACHEABLE | MMU_BUFFABLE | MMU_SECTION)
 	#define MMU_SECTION_SIZE 0x00100000  //1 MB 
 
-	unsigned long virtualaddr, physicaladdr;
-	unsigned long *tlb_base = (unsigned long *)0x30000000
+	unsigned long virtualaddr, physicaladdr ;
+	unsigned long *tlb_base = (unsigned long *)0x30000000;
 
     //0~1M mapped to 4KB Steppingstone 
 	virtualaddr = 0;
@@ -81,7 +81,7 @@ void create_page_table(void)
     //0xB0000000~0xB3FFFFFF mapped
     virtualaddr = 0xB0000000;
     physicaladdr = 0x30000000;
-    while(virtualaddr < 0xB3FFFFFF)
+    while(virtualaddr < 0xB4000000)
     {
 	    *(tlb_base + (virtualaddr>>20)) = (physicaladdr & 0xFFF00000) | MMU_SECDESC_CB;
     	virtualaddr += 0x100000;
@@ -95,7 +95,7 @@ void mmu_init(void)
 	__asm__(
 		"mov r0, #0\n"
 		"mcr p15, 0, r0, c7, c7, 0\n"    //disable ICache and DCache
-		"mcr p15, 0, r0, c7, c10,0\n"    //drain write buffer on v4
+		"mcr p15, 0, r0, c7, c10,4\n"    //drain write buffer on v4
 		"mcr p15, 0, r0, c8, c7,0\n"     //disable TLB
 
 		"mov r4, %0\n"        //r4 = translation table base
@@ -119,6 +119,6 @@ void mmu_init(void)
 
 		"mcr p15, 0, r0, c1, c0, 0\n"    //write to register
 		:                                //no ouput
-		: "r" (tbb)                    //input
+		: "r" (ttb)                    //input
 	);
 }
