@@ -1,4 +1,4 @@
-#NOTE  
+# NOTE  
 - **img**:images for readnotes
 - **hello**:test arm-linux-gcc installed correctly
 - **options**:practice arm-linux-gcc options
