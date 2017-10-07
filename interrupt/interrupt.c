@@ -9,6 +9,12 @@ void IRQ_ISR()
 {
 	unsigned long irq_num = INTOFFSET;
 
+	//clear interrupt
+	/*if(irq_num == 5)
+		EINTPEND = (1<<11);    //EINT8_23 = IRQ5
+	SRCPND = 1 << irq_num;
+	INTPND = 1 << irq_num;*/
+
 	switch(irq_num)
 	{
 		//K1 press down

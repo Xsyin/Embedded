@@ -1,0 +1,187 @@
+
+timer_elf:     file format elf32-littlearm
+
+Disassembly of section .text:
+
+30000000 <_start>:
+30000000:	ea000006 	b	30000020 <Reset>
+
+30000004 <HandleUndef>:
+30000004:	eafffffe 	b	30000004 <HandleUndef>
+
+30000008 <HandleSWI>:
+30000008:	eafffffe 	b	30000008 <HandleSWI>
+
+3000000c <HandlePrefetchAbort>:
+3000000c:	eafffffe 	b	3000000c <HandlePrefetchAbort>
+
+30000010 <HandleDataAbort>:
+30000010:	eafffffe 	b	30000010 <HandleDataAbort>
+
+30000014 <HandleReserved>:
+30000014:	eafffffe 	b	30000014 <HandleReserved>
+30000018:	ea000010 	b	30000060 <HandleIRQ>
+
+3000001c <HandleFIQ>:
+3000001c:	eafffffe 	b	3000001c <HandleFIQ>
+
+30000020 <Reset>:
+30000020:	e3a0da01 	mov	sp, #4096	; 0x1000
+30000024:	eb000017 	bl	30000088 <disable_watchdog>
+30000028:	eb000024 	bl	300000c0 <memsetup>
+3000002c:	eb00003e 	bl	3000012c <copy_steppingstone_to_sdram>
+30000030:	e59ff03c 	ldr	pc, [pc, #60]	; 30000074 <.text+0x74>
+
+30000034 <on_sdram>:
+30000034:	e321f0d2 	msr	CPSR_c, #210	; 0xd2
+30000038:	e3a0da01 	mov	sp, #4096	; 0x1000
+3000003c:	e321f0df 	msr	CPSR_c, #223	; 0xdf
+30000040:	e3a0d30d 	mov	sp, #872415232	; 0x34000000
+30000044:	eb000041 	bl	30000150 <init_led>
+30000048:	eb000044 	bl	30000160 <timer0_init>
+3000004c:	eb000051 	bl	30000198 <init_irq>
+30000050:	e321f05f 	msr	CPSR_c, #95	; 0x5f
+30000054:	e59fe01c 	ldr	lr, [pc, #28]	; 30000078 <.text+0x78>
+30000058:	e59ff01c 	ldr	pc, [pc, #28]	; 3000007c <.text+0x7c>
+
+3000005c <halt_loop>:
+3000005c:	eafffffe 	b	3000005c <halt_loop>
+
+30000060 <HandleIRQ>:
+30000060:	e24ee004 	sub	lr, lr, #4	; 0x4
+30000064:	e92d5fff 	stmdb	sp!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip, lr}
+30000068:	e59fe010 	ldr	lr, [pc, #16]	; 30000080 <.text+0x80>
+3000006c:	e59ff010 	ldr	pc, [pc, #16]	; 30000084 <.text+0x84>
+
+30000070 <int_return>:
+30000070:	e8fd9fff 	ldmia	sp!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip, pc}^
+30000074:	30000034 	andcc	r0, r0, r4, lsr r0
+30000078:	3000005c 	andcc	r0, r0, ip, asr r0
+3000007c:	300001e8 	andcc	r0, r0, r8, ror #3
+30000080:	30000070 	andcc	r0, r0, r0, ror r0
+30000084:	300001ac 	andcc	r0, r0, ip, lsr #3
+
+30000088 <disable_watchdog>:
+30000088:	e3a02000 	mov	r2, #0	; 0x0
+3000008c:	e3a03453 	mov	r3, #1392508928	; 0x53000000
+30000090:	e5832000 	str	r2, [r3]
+30000094:	e1a0f00e 	mov	pc, lr
+
+30000098 <clock_init>:
+30000098:	e3a02313 	mov	r2, #1275068416	; 0x4c000000
+3000009c:	e3a03003 	mov	r3, #3	; 0x3
+300000a0:	e5823014 	str	r3, [r2, #20]
+300000a4:	ee111f10 	mrc	15, 0, r1, cr1, cr0, {0}
+300000a8:	e3811103 	orr	r1, r1, #-1073741824	; 0xc0000000
+300000ac:	ee011f10 	mcr	15, 0, r1, cr1, cr0, {0}
+300000b0:	e3a03917 	mov	r3, #376832	; 0x5c000
+300000b4:	e2833012 	add	r3, r3, #18	; 0x12
+300000b8:	e5823004 	str	r3, [r2, #4]
+300000bc:	e1a0f00e 	mov	pc, lr
+
+300000c0 <memsetup>:
+300000c0:	e52de004 	str	lr, [sp, #-4]!
+300000c4:	e3a01422 	mov	r1, #570425344	; 0x22000000
+300000c8:	e3a0c723 	mov	ip, #9175040	; 0x8c0000
+300000cc:	e2811a11 	add	r1, r1, #69632	; 0x11000
+300000d0:	e3a03312 	mov	r3, #1207959552	; 0x48000000
+300000d4:	e3a02c07 	mov	r2, #1792	; 0x700
+300000d8:	e28cce7a 	add	ip, ip, #1952	; 0x7a0
+300000dc:	e3a00906 	mov	r0, #98304	; 0x18000
+300000e0:	e2811e11 	add	r1, r1, #272	; 0x110
+300000e4:	e2800005 	add	r0, r0, #5	; 0x5
+300000e8:	e3a0e030 	mov	lr, #48	; 0x30
+300000ec:	e5831000 	str	r1, [r3]
+300000f0:	e28cc003 	add	ip, ip, #3	; 0x3
+300000f4:	e5832004 	str	r2, [r3, #4]
+300000f8:	e5832008 	str	r2, [r3, #8]
+300000fc:	e583200c 	str	r2, [r3, #12]
+30000100:	e5832010 	str	r2, [r3, #16]
+30000104:	e5832014 	str	r2, [r3, #20]
+30000108:	e5832018 	str	r2, [r3, #24]
+3000010c:	e3a020b1 	mov	r2, #177	; 0xb1
+30000110:	e583001c 	str	r0, [r3, #28]
+30000114:	e5830020 	str	r0, [r3, #32]
+30000118:	e583c024 	str	ip, [r3, #36]
+3000011c:	e5832028 	str	r2, [r3, #40]
+30000120:	e583e02c 	str	lr, [r3, #44]
+30000124:	e583e030 	str	lr, [r3, #48]
+30000128:	e49df004 	ldr	pc, [sp], #4
+
+3000012c <copy_steppingstone_to_sdram>:
+3000012c:	e3a00eff 	mov	r0, #4080	; 0xff0
+30000130:	e280000f 	add	r0, r0, #15	; 0xf
+30000134:	e3a02000 	mov	r2, #0	; 0x0
+30000138:	e3a01203 	mov	r1, #805306368	; 0x30000000
+3000013c:	e4923004 	ldr	r3, [r2], #4
+30000140:	e1520000 	cmp	r2, r0
+30000144:	e4813004 	str	r3, [r1], #4
+30000148:	9afffffb 	bls	3000013c <copy_steppingstone_to_sdram+0x10>
+3000014c:	e1a0f00e 	mov	pc, lr
+
+30000150 <init_led>:
+30000150:	e3a02c15 	mov	r2, #5376	; 0x1500
+30000154:	e3a03456 	mov	r3, #1442840576	; 0x56000000
+30000158:	e5832050 	str	r2, [r3, #80]
+3000015c:	e1a0f00e 	mov	pc, lr
+
+30000160 <timer0_init>:
+30000160:	e3a00c7a 	mov	r0, #31232	; 0x7a00
+30000164:	e3a01451 	mov	r1, #1358954496	; 0x51000000
+30000168:	e3a03063 	mov	r3, #99	; 0x63
+3000016c:	e3a02003 	mov	r2, #3	; 0x3
+30000170:	e2800012 	add	r0, r0, #18	; 0x12
+30000174:	e5813000 	str	r3, [r1]
+30000178:	e5812004 	str	r2, [r1, #4]
+3000017c:	e2822006 	add	r2, r2, #6	; 0x6
+30000180:	e581000c 	str	r0, [r1, #12]
+30000184:	e5913008 	ldr	r3, [r1, #8]
+30000188:	e3833002 	orr	r3, r3, #2	; 0x2
+3000018c:	e5813008 	str	r3, [r1, #8]
+30000190:	e5812008 	str	r2, [r1, #8]
+30000194:	e1a0f00e 	mov	pc, lr
+
+30000198 <init_irq>:
+30000198:	e3a0244a 	mov	r2, #1241513984	; 0x4a000000
+3000019c:	e5923008 	ldr	r3, [r2, #8]
+300001a0:	e3c33b01 	bic	r3, r3, #1024	; 0x400
+300001a4:	e5823008 	str	r3, [r2, #8]
+300001a8:	e1a0f00e 	mov	pc, lr
+
+300001ac <timer0_handle>:
+300001ac:	e3a0144a 	mov	r1, #1241513984	; 0x4a000000
+300001b0:	e5913014 	ldr	r3, [r1, #20]
+300001b4:	e3a02456 	mov	r2, #1442840576	; 0x56000000
+300001b8:	e353000a 	cmp	r3, #10	; 0xa
+300001bc:	05923054 	ldreq	r3, [r2, #84]
+300001c0:	02033070 	andeq	r3, r3, #112	; 0x70
+300001c4:	01e03003 	mvneq	r3, r3
+300001c8:	05823054 	streq	r3, [r2, #84]
+300001cc:	e3a02001 	mov	r2, #1	; 0x1
+300001d0:	e5913014 	ldr	r3, [r1, #20]
+300001d4:	e1a02312 	mov	r2, r2, lsl r3
+300001d8:	e5812000 	str	r2, [r1]
+300001dc:	e5913010 	ldr	r3, [r1, #16]
+300001e0:	e5813010 	str	r3, [r1, #16]
+300001e4:	e1a0f00e 	mov	pc, lr
+
+300001e8 <main>:
+300001e8:	eafffffe 	b	300001e8 <main>
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	cmpmi	r3, #0	; 0x0
+   4:	4728203a 	undefined
+   8:	2029554e 	eorcs	r5, r9, lr, asr #10
+   c:	2e342e33 	mrccs	14, 1, r2, cr4, cr3, {1}
+  10:	47000035 	smladxmi	r0, r5, r0, r0
+  14:	203a4343 	eorcss	r4, sl, r3, asr #6
+  18:	554e4728 	strplb	r4, [lr, #-1832]
+  1c:	2e332029 	cdpcs	0, 3, cr2, cr3, cr9, {1}
+  20:	00352e34 	eoreqs	r2, r5, r4, lsr lr
+  24:	43434700 	cmpmi	r3, #0	; 0x0
+  28:	4728203a 	undefined
+  2c:	2029554e 	eorcs	r5, r9, lr, asr #10
+  30:	2e342e33 	mrccs	14, 1, r2, cr4, cr3, {1}
+  34:	Address 0x34 is out of bounds.
+
