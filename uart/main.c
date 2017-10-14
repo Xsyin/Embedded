@@ -15,7 +15,22 @@ int main()
 	{
 		c = getc();
 		if(isDigit(c) || isLetter(c))
-			putc(c+1);
+		{
+			switch(c){
+				case '9':
+					putc('0');
+					break;
+				case 'z':
+					putc('a');
+					break;
+				case 'Z':
+					putc('A');
+					break;
+				default:
+					putc(c+1);
+					break;
+			}
+		}
 	}
 	return 0;
 }

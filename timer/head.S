@@ -32,7 +32,7 @@ HandleFIQ:
 Reset:
 	ldr sp, =4096
 	bl disable_watchdog
-	@bl clock_init
+	bl clock_init
 	bl memsetup
 	bl copy_steppingstone_to_sdram
 	ldr pc, =on_sdram

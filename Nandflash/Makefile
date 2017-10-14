@@ -1,7 +1,4 @@
-src_c := $(shell ls *.c)
-objs := $(patsubst %.c,%.o,$(src_c))
-src_s := $(wildcard *.S)
-objs += $(patsubst %.S,%.o,$(src_s))
+objs := head.o init.o nand.o main.o
 
 nand.bin:$(objs)
 	arm-linux-ld -Tnand.lds -o nand_elf $^

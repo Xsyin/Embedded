@@ -52,8 +52,8 @@ void memsetup()
 	p[6] = 0x00000700;   //BANKCON5
 	p[7] = 0x00018005;   //BANKCON6
 	p[8] = 0x00018005;   //BANKCON7
-	//p[9] = 0x008C04F4;   //REFRESH   HCLK = 100MHZ
-	p[9] = 0x008C07A3;     //HCLK = 12MHZ
+	p[9] = 0x008C04F4;   //REFRESH   HCLK = 100MHZ
+	//p[9] = 0x008C07A3;     //HCLK = 12MHZ
 	p[10] = 0x000000B1;  //BANKSIZE
 	p[11] = 0x00000030;  //MRSRB6
 	p[12] = 0x00000030;  //MRSRB7

@@ -11,7 +11,7 @@
 
 #define PCLK             50000000         //PCLK = 50MHZ
 #define UART_CLK         PCLK
-#define UART_BAUD_RATE   11520            //baud_rate = 115200
+#define UART_BAUD_RATE   115200            //baud_rate = 115200
 #define UART_BRD         ((UART_CLK / (UART_BAUD_RATE * 16)) - 1)
 
 void uart0_init(void)

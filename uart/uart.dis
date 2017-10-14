@@ -20,7 +20,7 @@ Disassembly of section .text:
 30000024:	eafffffe 	b	30000024 <halt_loop>
 30000028:	30000018 	andcc	r0, r0, r8, lsl r0
 3000002c:	30000024 	andcc	r0, r0, r4, lsr #32
-30000030:	300001cc 	andcc	r0, r0, ip, asr #3
+30000030:	300001c4 	andcc	r0, r0, r4, asr #3
 
 30000034 <disable_watchdog>:
 30000034:	e3a02000 	mov	r2, #0	; 0x0
@@ -81,85 +81,100 @@ Disassembly of section .text:
 300000f8:	e1a0f00e 	mov	pc, lr
 
 300000fc <uart0_init>:
-300000fc:	e52de004 	str	lr, [sp, #-4]!
-30000100:	e3a01456 	mov	r1, #1442840576	; 0x56000000
-30000104:	e3a0300c 	mov	r3, #12	; 0xc
-30000108:	e3a0e205 	mov	lr, #1342177280	; 0x50000000
-3000010c:	e3a00f43 	mov	r0, #268	; 0x10c
-30000110:	e3a0c000 	mov	ip, #0	; 0x0
-30000114:	e2800002 	add	r0, r0, #2	; 0x2
-30000118:	e5912070 	ldr	r2, [r1, #112]
-3000011c:	e38220a0 	orr	r2, r2, #160	; 0xa0
-30000120:	e5812070 	str	r2, [r1, #112]
-30000124:	e3a02003 	mov	r2, #3	; 0x3
-30000128:	e5813058 	str	r3, [r1, #88]
-3000012c:	e243328b 	sub	r3, r3, #-1342177272	; 0xb0000008
-30000130:	e3a01005 	mov	r1, #5	; 0x5
-30000134:	e58e2000 	str	r2, [lr]
-30000138:	e2822255 	add	r2, r2, #1342177285	; 0x50000005
-3000013c:	e4831008 	str	r1, [r3], #8
-30000140:	e582c000 	str	ip, [r2]
-30000144:	e583c000 	str	ip, [r3]
-30000148:	e58e0028 	str	r0, [lr, #40]
-3000014c:	e49df004 	ldr	pc, [sp], #4
+300000fc:	e3a01456 	mov	r1, #1442840576	; 0x56000000
+30000100:	e5913070 	ldr	r3, [r1, #112]
+30000104:	e38330a0 	orr	r3, r3, #160	; 0xa0
+30000108:	e5813070 	str	r3, [r1, #112]
+3000010c:	e3a0c205 	mov	ip, #1342177280	; 0x50000000
+30000110:	e3a0200c 	mov	r2, #12	; 0xc
+30000114:	e3a03003 	mov	r3, #3	; 0x3
+30000118:	e3a00000 	mov	r0, #0	; 0x0
+3000011c:	e5812058 	str	r2, [r1, #88]
+30000120:	e242224b 	sub	r2, r2, #-1342177276	; 0xb0000004
+30000124:	e3a01005 	mov	r1, #5	; 0x5
+30000128:	e58c3000 	str	r3, [ip]
+3000012c:	e2833215 	add	r3, r3, #1342177281	; 0x50000001
+30000130:	e4831008 	str	r1, [r3], #8
+30000134:	e5820000 	str	r0, [r2]
+30000138:	e3a0201a 	mov	r2, #26	; 0x1a
+3000013c:	e5830000 	str	r0, [r3]
+30000140:	e58c2028 	str	r2, [ip, #40]
+30000144:	e1a0f00e 	mov	pc, lr
 
-30000150 <putc>:
-30000150:	e20000ff 	and	r0, r0, #255	; 0xff
-30000154:	e3a02205 	mov	r2, #1342177280	; 0x50000000
-30000158:	e5923010 	ldr	r3, [r2, #16]
-3000015c:	e3130004 	tst	r3, #4	; 0x4
-30000160:	0afffffc 	beq	30000158 <putc+0x8>
-30000164:	e5820020 	str	r0, [r2, #32]
-30000168:	e1a0f00e 	mov	pc, lr
+30000148 <putc>:
+30000148:	e20000ff 	and	r0, r0, #255	; 0xff
+3000014c:	e3a02205 	mov	r2, #1342177280	; 0x50000000
+30000150:	e5923010 	ldr	r3, [r2, #16]
+30000154:	e3130004 	tst	r3, #4	; 0x4
+30000158:	0afffffc 	beq	30000150 <putc+0x8>
+3000015c:	e5820020 	str	r0, [r2, #32]
+30000160:	e1a0f00e 	mov	pc, lr
 
-3000016c <getc>:
-3000016c:	e3a02205 	mov	r2, #1342177280	; 0x50000000
-30000170:	e5923010 	ldr	r3, [r2, #16]
-30000174:	e3130001 	tst	r3, #1	; 0x1
-30000178:	0afffffc 	beq	30000170 <getc+0x4>
-3000017c:	e5920024 	ldr	r0, [r2, #36]
-30000180:	e20000ff 	and	r0, r0, #255	; 0xff
-30000184:	e1a0f00e 	mov	pc, lr
+30000164 <getc>:
+30000164:	e3a02205 	mov	r2, #1342177280	; 0x50000000
+30000168:	e5923010 	ldr	r3, [r2, #16]
+3000016c:	e3130001 	tst	r3, #1	; 0x1
+30000170:	0afffffc 	beq	30000168 <getc+0x4>
+30000174:	e5920024 	ldr	r0, [r2, #36]
+30000178:	e20000ff 	and	r0, r0, #255	; 0xff
+3000017c:	e1a0f00e 	mov	pc, lr
 
-30000188 <isDigit>:
-30000188:	e2400030 	sub	r0, r0, #48	; 0x30
-3000018c:	e20000ff 	and	r0, r0, #255	; 0xff
-30000190:	e3500009 	cmp	r0, #9	; 0x9
-30000194:	83a00000 	movhi	r0, #0	; 0x0
-30000198:	93a00001 	movls	r0, #1	; 0x1
-3000019c:	e1a0f00e 	mov	pc, lr
+30000180 <isDigit>:
+30000180:	e2400030 	sub	r0, r0, #48	; 0x30
+30000184:	e20000ff 	and	r0, r0, #255	; 0xff
+30000188:	e3500009 	cmp	r0, #9	; 0x9
+3000018c:	83a00000 	movhi	r0, #0	; 0x0
+30000190:	93a00001 	movls	r0, #1	; 0x1
+30000194:	e1a0f00e 	mov	pc, lr
 
-300001a0 <isLetter>:
-300001a0:	e20000ff 	and	r0, r0, #255	; 0xff
-300001a4:	e2403061 	sub	r3, r0, #97	; 0x61
-300001a8:	e3530019 	cmp	r3, #25	; 0x19
-300001ac:	e2400041 	sub	r0, r0, #65	; 0x41
-300001b0:	e3a03001 	mov	r3, #1	; 0x1
-300001b4:	9a000002 	bls	300001c4 <isLetter+0x24>
-300001b8:	e3500019 	cmp	r0, #25	; 0x19
-300001bc:	83a03000 	movhi	r3, #0	; 0x0
-300001c0:	93a03001 	movls	r3, #1	; 0x1
-300001c4:	e1a00003 	mov	r0, r3
-300001c8:	e1a0f00e 	mov	pc, lr
+30000198 <isLetter>:
+30000198:	e20000ff 	and	r0, r0, #255	; 0xff
+3000019c:	e2403061 	sub	r3, r0, #97	; 0x61
+300001a0:	e3530019 	cmp	r3, #25	; 0x19
+300001a4:	e2400041 	sub	r0, r0, #65	; 0x41
+300001a8:	e3a03001 	mov	r3, #1	; 0x1
+300001ac:	9a000002 	bls	300001bc <isLetter+0x24>
+300001b0:	e3500019 	cmp	r0, #25	; 0x19
+300001b4:	83a03000 	movhi	r3, #0	; 0x0
+300001b8:	93a03001 	movls	r3, #1	; 0x1
+300001bc:	e1a00003 	mov	r0, r3
+300001c0:	e1a0f00e 	mov	pc, lr
 
-300001cc <main>:
-300001cc:	e92d4010 	stmdb	sp!, {r4, lr}
-300001d0:	ebffffc9 	bl	300000fc <uart0_init>
-300001d4:	ea000002 	b	300001e4 <main+0x18>
-300001d8:	e2840001 	add	r0, r4, #1	; 0x1
-300001dc:	e20000ff 	and	r0, r0, #255	; 0xff
-300001e0:	ebffffda 	bl	30000150 <putc>
-300001e4:	ebffffe0 	bl	3000016c <getc>
-300001e8:	e20040ff 	and	r4, r0, #255	; 0xff
-300001ec:	e1a00004 	mov	r0, r4
-300001f0:	ebffffe4 	bl	30000188 <isDigit>
-300001f4:	e3500000 	cmp	r0, #0	; 0x0
-300001f8:	e1a00004 	mov	r0, r4
-300001fc:	1afffff5 	bne	300001d8 <main+0xc>
-30000200:	ebffffe6 	bl	300001a0 <isLetter>
-30000204:	e3500000 	cmp	r0, #0	; 0x0
-30000208:	0afffff5 	beq	300001e4 <main+0x18>
-3000020c:	eafffff1 	b	300001d8 <main+0xc>
+300001c4 <main>:
+300001c4:	e92d4010 	stmdb	sp!, {r4, lr}
+300001c8:	ebffffcb 	bl	300000fc <uart0_init>
+300001cc:	ebffffe4 	bl	30000164 <getc>
+300001d0:	e20040ff 	and	r4, r0, #255	; 0xff
+300001d4:	e1a00004 	mov	r0, r4
+300001d8:	ebffffe8 	bl	30000180 <isDigit>
+300001dc:	e3500000 	cmp	r0, #0	; 0x0
+300001e0:	0a00000f 	beq	30000224 <main+0x60>
+300001e4:	e354005a 	cmp	r4, #90	; 0x5a
+300001e8:	03a00041 	moveq	r0, #65	; 0x41
+300001ec:	0a000005 	beq	30000208 <main+0x44>
+300001f0:	ca000010 	bgt	30000238 <main+0x74>
+300001f4:	e3540039 	cmp	r4, #57	; 0x39
+300001f8:	03a00030 	moveq	r0, #48	; 0x30
+300001fc:	0a000001 	beq	30000208 <main+0x44>
+30000200:	e2840001 	add	r0, r4, #1	; 0x1
+30000204:	e20000ff 	and	r0, r0, #255	; 0xff
+30000208:	ebffffce 	bl	30000148 <putc>
+3000020c:	ebffffd4 	bl	30000164 <getc>
+30000210:	e20040ff 	and	r4, r0, #255	; 0xff
+30000214:	e1a00004 	mov	r0, r4
+30000218:	ebffffd8 	bl	30000180 <isDigit>
+3000021c:	e3500000 	cmp	r0, #0	; 0x0
+30000220:	1affffef 	bne	300001e4 <main+0x20>
+30000224:	e1a00004 	mov	r0, r4
+30000228:	ebffffda 	bl	30000198 <isLetter>
+3000022c:	e3500000 	cmp	r0, #0	; 0x0
+30000230:	0affffe5 	beq	300001cc <main+0x8>
+30000234:	eaffffea 	b	300001e4 <main+0x20>
+30000238:	e354007a 	cmp	r4, #122	; 0x7a
+3000023c:	03a00061 	moveq	r0, #97	; 0x61
+30000240:	1affffee 	bne	30000200 <main+0x3c>
+30000244:	ebffffbf 	bl	30000148 <putc>
+30000248:	eaffffef 	b	3000020c <main+0x48>
 Disassembly of section .comment:
 
 00000000 <.comment>:
