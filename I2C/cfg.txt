@@ -1,0 +1,5 @@
+# 说明："#"号开头表示注释
+#       每个配置占一行，每行有6个参数，分别表示：JTAG类型、CPU类型、Flash类型、读写类型、偏移地址、文件
+#       可以在配置文件里写多个配置用来把不同的文件写到不同的Flash、不同的偏移地址去
+# jtag(0:openjtag, 1:dongle并口, 2:wiggler并口) cpu(0:s3c2410, 1:s3c2440， 2: s3c6410)  flash(0:nand, 1:nor)      read/write(0:write, 1:read)  offset     file
+0 1 0  0 0 I2C.bin

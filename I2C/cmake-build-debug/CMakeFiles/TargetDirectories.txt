@@ -1,0 +1,3 @@
+/home/xsyin/embedded/workspace/I2C/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/xsyin/embedded/workspace/I2C/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/xsyin/embedded/workspace/I2C/cmake-build-debug/CMakeFiles/I2C.dir

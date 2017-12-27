@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/I2C.dir/lib/ctype.c.o CMakeFiles/I2C.dir/lib/muldi3.c.o CMakeFiles/I2C.dir/lib/printf.c.o CMakeFiles/I2C.dir/lib/string.c.o CMakeFiles/I2C.dir/lib/vsprintf.c.o CMakeFiles/I2C.dir/i2c.c.o CMakeFiles/I2C.dir/init.c.o CMakeFiles/I2C.dir/interrupt.c.o CMakeFiles/I2C.dir/m41t11.c.o CMakeFiles/I2C.dir/nand.c.o CMakeFiles/I2C.dir/serial.c.o  -o I2C 

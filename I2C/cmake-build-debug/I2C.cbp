@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="I2C"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/xsyin/embedded/workspace/I2C/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/xsyin/embedded/workspace/I2C/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/xsyin/embedded/workspace/I2C/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="I2C">
+				<Option output="/home/xsyin/embedded/workspace/I2C/cmake-build-debug/I2C" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/xsyin/embedded/workspace/I2C/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/xsyin/embedded/workspace/I2C/."/>
+					<Add directory="/home/xsyin/embedded/workspace/I2C/include"/>
+					<Add directory="/home/xsyin/embedded/workspace/I2C/lib"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 I2C"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="I2C/fast">
+				<Option output="/home/xsyin/embedded/workspace/I2C/cmake-build-debug/I2C" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/xsyin/embedded/workspace/I2C/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/xsyin/embedded/workspace/I2C/."/>
+					<Add directory="/home/xsyin/embedded/workspace/I2C/include"/>
+					<Add directory="/home/xsyin/embedded/workspace/I2C/lib"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 I2C/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/xsyin/embedded/workspace/I2C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/cfg.txt">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/head.S">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/i2c.c">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/i2c.h">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/include/ctype.h">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/include/gcclib.h">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/include/kernel.h">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/include/stdio.h">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/include/system.h">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/include/types.h">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/init.c">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/interrupt.c">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/lib/Makefile">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/lib/ctype.c">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/lib/div64.S">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/lib/div64.h">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/lib/lib1funcs.S">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/lib/libc.a">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/lib/muldi3.c">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/lib/printf.c">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/lib/printf.h">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/lib/string.c">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/lib/string.h">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/lib/vsprintf.c">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/lib/vsprintf.h">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/m41t11.c">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/m41t11.h">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/nand.c">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/s3c2440.h">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/serial.c">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/serial.h">
+			<Option target="I2C"/>
+		</Unit>
+		<Unit filename="/home/xsyin/embedded/workspace/I2C/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
